@@ -1,0 +1,238 @@
+console_title_template = '{{ .Shell }}'
+version = 3
+final_space = true
+
+[[blocks]]
+type = 'prompt'
+alignment = 'left'
+
+[[blocks.segments]]
+type = "os"
+style = "diamond"
+leading_diamond = "<p:white,transparent>\u256d\u2500</>"
+trailing_diamond = ''
+foreground = "p:crust"
+background = "p:green"
+template = "<b>{{ .Icon }}</b>"
+
+[blocks.segments.properties]
+macos = "mac"
+linux = "linux"
+
+[[blocks.segments]]
+template = ' {{ if .SSHSession }} {{ end }}{{ .UserName }}@{{ .HostName }} '
+leading_diamond = ''
+trailing_diamond = ''
+foreground = 'p:crust'
+background = 'p:lavender'
+type = 'session'
+style = 'diamond'
+
+[[blocks.segments]]
+template = '  {{ .Output }}'
+trailing_diamond = ''
+leading_diamond = ''
+alignment = "right"
+foreground = "p:crust"
+background = "p:blue"
+type = "command"
+style = "diamond"
+
+[blocks.segments.properties]
+shell = "zsh"
+command = "ip -4 addr show enp3s0 | awk '/inet / {print $2}' | cut -d/ -f1"
+
+[[blocks.segments]]
+template = '  {{ .Output }}'
+trailing_diamond = ''
+leading_diamond = ''
+alignment = "right"
+foreground = "p:crust"
+background = "p:green"
+type = "command"
+style = "diamond"
+
+[blocks.segments.properties]
+shell = "zsh"
+command = "ip -4 addr show wlp4s0 | awk '/inet / {print $2}' | cut -d/ -f1"
+
+[[blocks.segments]]
+template = '◍ {{ .Output }}'
+trailing_diamond = ''
+leading_diamond = ''
+foreground = "p:crust"
+background = "p:teal"
+type = "command"
+style = "diamond"
+
+[blocks.segments.properties]
+shell = "zsh"
+command = "ip -4 addr show tailscale0 | awk '/inet / {print $2}' | cut -d/ -f1"
+
+[[blocks]]
+type ='prompt'
+alignment = 'right'
+
+[[blocks.segments]]
+foreground = 'p:crust'
+background = 'p:green'
+trailing_diamond = ''
+leading_diamond = ''
+type = 'time'
+style = 'diamond'
+
+[blocks.segments.properties]
+time_format = '03:04:05 PM'
+
+[[blocks.segments]]
+type = "executiontime"
+alias = "executiontime"
+style = "powerline"
+powerline_symbol = ""
+foreground = "p:crust"
+background = "p:blue"
+template = " <p:white></> {{ .FormattedMs }} "
+
+[blocks.segments.properties]
+threshold = 500
+style = "austin"
+always_enabled = false
+
+[[blocks]]
+type = "prompt"
+alignment = "left"
+newline = true
+
+[[blocks.segments]]
+trailing_diamond = ""
+template = "<p:white,transparent>\u2502</>  {{ path .Path .Location }} "
+foreground = 'p:crust'
+background = 'p:lavender'
+type = 'path'
+style = 'diamond'
+
+[blocks.segments.properties]
+style = 'full'
+
+[[blocks.segments]]
+background = "p:pink"
+foreground = "p:crust"
+style = "powerline"
+powerline_symbol = ""
+template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <p:sapphire>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>'
+type = "git"
+
+[blocks.segments.properties]
+branch_icon = " "
+cherry_pick_icon = " "
+commit_icon = " "
+fetch_status = false
+fetch_upstream_icon = false
+merge_icon = " "
+no_commits_icon = " "
+rebase_icon = " "
+revert_icon = " "
+tag_icon = " "
+
+[[blocks]]
+type = 'prompt'
+alignment = 'right'
+
+[[blocks.segments]]
+template = ' '
+foreground = 'p:green'
+background = 'transparent'
+type = 'node'
+style = 'powerline'
+
+[blocks.segments.properties]
+display_mode = 'files'
+fetch_package_manager = false
+home_enabled = false
+
+[[blocks.segments]]
+template = ' {{if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}'
+foreground = 'p:crust'
+background = 'p:teal'
+trailing_diamond = ''
+leading_diamond = ''
+type = 'go'
+style = 'diamond'
+
+[blocks.segments.properties]
+fetch_version = true
+
+[[blocks.segments]]
+template = ' '
+foreground = 'p:crust'
+background = 'p:red'
+type = 'python'
+style = 'powerline'
+
+[blocks.segments.properties]
+display_mode = 'files'
+fetch_version = false
+fetch_virtual_env = false
+
+[[blocks.segments]]
+foreground = 'p:crust'
+background = 'p:green'
+template = "{{if gt .Code 0 }}\uf071 {{ reason .Code }}: {{ .Code }}{{ else }}\uf00c{{ end }}"
+background_templates = ["{{ if gt .Code 0 }}#e78284{{ else }}#a6d189{{ end }}"]
+leading_diamond = ''
+trailing_diamond = ''
+type = 'status'
+style = 'diamond'
+
+[blocks.segments.properties]
+always_enabled = true
+
+[[blocks]]
+type = 'prompt'
+alignment = 'left'
+newline = true
+
+[[blocks.segments]]
+newline = true
+foreground = 'p:white'
+background = 'transparent'
+template = "\u2570\u2500"
+type = 'text'
+
+[palette]
+os = "#ACB0BE"
+white = "#FFFFFF"
+
+rosewater = "#f2d5cf"
+flamingo = "#eebebe"
+pink = "#f4b8e4"
+mauve = "#ca9ee6"
+red = "#e78284"
+maroon = "#ea999c"
+peach = "#ef9f76"
+yellow = "#e5c890"
+green = "#a6d189"
+teal = "#81c8be"
+sky = "#99d1db"
+sapphire = "#85c1dc"
+blue = "#8caaee"
+lavender = "#babbf1"
+text = "#414559"
+crust = "#232634"
+
+[secondary_prompt]
+template = '<p:os,transparent></><,p:os> > </><p:os,transparent></> '
+foreground = 'p:text'
+background = 'transparent'
+
+[transient_prompt]
+template = "> "
+newline = true
+foreground = 'p:os'
+background = 'transparent'
+
+[upgrade]
+notice = false
+interval = "168h"
+auto = true
+source = "cdn"

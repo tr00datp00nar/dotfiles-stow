@@ -1,0 +1,19 @@
+[misc]
+assume_yes = true
+run_in_tmux = false
+skip_notify = true
+
+disable = [ "cargo" ]
+
+[linux]
+arch_package_manager = "yay"
+show_arch_news = false
+
+[git]
+pull_predefined = false
+
+[npm]
+use_sudo = true
+
+[post_commands]
+"Build Neovim" = "~/scripts/buildNvim.sh"
