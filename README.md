@@ -8,7 +8,7 @@ For more information about GNU Stow, take a look at the [documentation](https://
 1. Ensure GNU Stow is installed on your local system.
 - Arch Linux:
 ```sh
-sudo pacman -S stow`
+sudo pacman -S stow
 ```
 
 - Debian/Ubuntu:
