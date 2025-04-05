@@ -5,6 +5,21 @@ For more information about GNU Stow, take a look at the [documentation](https://
 
 ## Usage
 
+### Preferred Method
+1. Clone this repository:
+```sh
+git clone https://github.com/tr00datp00nar/dotfiles-stow.git
+```
+
+2. Uncomment the packages you want to install inside of `install.sh`.
+
+3. Run the install script from inside of the cloned repository.
+```sh
+cd dotfiles-stow
+./install.sh
+```
+
+### Manual Method
 1. Ensure GNU Stow is installed on your local system.
 - Arch Linux:
 ```sh

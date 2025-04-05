@@ -3,6 +3,8 @@
   email = tr00datp00nar@gmail.com
 [hub]
   protocol = ssh
+[core]
+  editor = nvim
 [pull]
   rebase = false
 [credential "https://github.com"]
