@@ -7,7 +7,7 @@ source ~/.config/zsh/zplug.zsh
 
 eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/omp.toml)"
 eval "$(zoxide init zsh --cmd cd)"
-eval "$(thefuck --alias fuck)"
+eval "$(thefuck --enable-experiemental-instant-mode)"
 
 bindkey -v
 bindkey '^r' fzf_history_search
