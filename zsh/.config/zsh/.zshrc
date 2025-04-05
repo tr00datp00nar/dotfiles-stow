@@ -1,3 +1,5 @@
+source ~/repos/github.com/catppuccin/zsh-syntax-highlighting/themes/catppuccin_frappe-zsh-syntax-highlighting.zsh
+
 source ~/.config/zsh/aliases.zsh
 source ~/.config/zsh/functions.zsh
 source ~/.config/zsh/path.zsh
@@ -5,6 +7,7 @@ source ~/.config/zsh/zplug.zsh
 
 eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/omp.toml)"
 eval "$(zoxide init zsh --cmd cd)"
+eval "$(thefuck --alias fuck)"
 
 bindkey -v
 bindkey '^r' fzf_history_search
