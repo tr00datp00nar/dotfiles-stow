@@ -1,0 +1,7 @@
+[user]
+  name = Micah Nadler
+  email = tr00datp00nar@gmail.com
+[hub]
+  protocol = ssh
+[pull]
+  rebase = false
